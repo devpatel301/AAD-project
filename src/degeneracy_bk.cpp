@@ -46,6 +46,11 @@ void DegeneracyBK::tomita_with_pivot(std::unordered_set<int> R,
                                      std::unordered_set<int> P,
                                      std::unordered_set<int> X,
                                      const Graph& g) {
+    // OPTIMIZATION: Prune if current + remaining cannot beat best
+    if (R.size() + P.size() <= max_clique.size()) {
+        return;  // Cannot find a larger clique in this branch
+    }
+    
     // Base case
     if (P.empty() && X.empty()) {
         if (R.size() > max_clique.size()) {
@@ -72,6 +77,11 @@ void DegeneracyBK::tomita_with_pivot(std::unordered_set<int> R,
     
     // Recurse on candidates
     for (int v : candidates) {
+        // OPTIMIZATION: Check if this branch can improve best
+        if (R.size() + 1 + P.size() <= max_clique.size()) {
+            break;  // No point continuing
+        }
+        
         std::unordered_set<int> R_new = R;
         R_new.insert(v);
         
