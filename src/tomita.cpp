@@ -47,6 +47,11 @@ void TomitaAlgorithm::tomita_recursive(std::unordered_set<int> R,
                                        std::unordered_set<int> P,
                                        std::unordered_set<int> X,
                                        const Graph& g) {
+    // OPTIMIZATION: Prune if current + remaining cannot beat best
+    if (R.size() + P.size() <= max_clique.size()) {
+        return;  // Cannot find a larger clique in this branch
+    }
+    
     // Base case: if P and X are both empty, R is a maximal clique
     if (P.empty() && X.empty()) {
         if (R.size() > max_clique.size()) {
@@ -73,6 +78,11 @@ void TomitaAlgorithm::tomita_recursive(std::unordered_set<int> R,
     
     // For each vertex in candidates
     for (int v : candidates) {
+        // OPTIMIZATION: Check if this branch can improve best
+        if (R.size() + 1 + P.size() <= max_clique.size()) {
+            break;  // No point continuing
+        }
+        
         // Create new sets
         std::unordered_set<int> R_new = R;
         R_new.insert(v);

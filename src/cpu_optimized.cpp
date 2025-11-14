@@ -44,10 +44,16 @@ inline int CPUOptimized::choose_pivot(const std::bitset<MAX_VERTICES>& P,
 inline void CPUOptimized::optimized_bk(std::bitset<MAX_VERTICES> R,
                                        std::bitset<MAX_VERTICES> P,
                                        std::bitset<MAX_VERTICES> X) {
+    // OPTIMIZATION: Prune if current + remaining cannot beat best
+    int current_size = R.count();
+    int remaining_size = P.count();
+    if (current_size + remaining_size <= (int)max_clique.size()) {
+        return;  // Cannot find a larger clique in this branch
+    }
+    
     // Base case: P and X are empty
     if (P.none() && X.none()) {
-        int clique_size = R.count();
-        if (clique_size > (int)max_clique.size()) {
+        if (current_size > (int)max_clique.size()) {
             max_clique = bitset_to_vector(R);
         }
         return;
@@ -68,6 +74,11 @@ inline void CPUOptimized::optimized_bk(std::bitset<MAX_VERTICES> R,
     for (int v = 0; v < n; v++) {
         if (!candidates[v]) continue;
         
+        // OPTIMIZATION: Check if this branch can improve best
+        if (current_size + 1 + remaining_size <= (int)max_clique.size()) {
+            break;  // No point continuing
+        }
+        
         // Create new sets using bitwise operations
         std::bitset<MAX_VERTICES> R_new = R;
         R_new.set(v);
@@ -81,6 +92,7 @@ inline void CPUOptimized::optimized_bk(std::bitset<MAX_VERTICES> R,
         // Move v from P to X
         P.reset(v);
         X.set(v);
+        remaining_size--;  // Update remaining size
     }
 }
 

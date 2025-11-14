@@ -77,16 +77,18 @@ public:
             benchmark_algorithm(graph, name, "SimulatedAnnealing", timeout_seconds);
             benchmark_algorithm(graph, name, "RandomizedHeuristic", timeout_seconds);
             
-            // Exact algorithms - may be slow on large graphs
+            // Exact algorithms - run OPTIMIZED variants FIRST (they're faster)
             if (graph.num_vertices() <= 100) {
-                benchmark_algorithm(graph, name, "BronKerbosch", timeout_seconds);
-                benchmark_algorithm(graph, name, "Tomita", timeout_seconds);
-                benchmark_algorithm(graph, name, "DegeneracyBK", timeout_seconds);
-                benchmark_algorithm(graph, name, "Ostergard", timeout_seconds);
-                
+                // Run optimized variants first (faster due to pruning)
                 if (graph.num_vertices() <= 1024) {
                     benchmark_algorithm(graph, name, "CPUOptimized", timeout_seconds);
                 }
+                benchmark_algorithm(graph, name, "DegeneracyBK", timeout_seconds);
+                benchmark_algorithm(graph, name, "Tomita", timeout_seconds);
+                benchmark_algorithm(graph, name, "Ostergard", timeout_seconds);
+                
+                // Run basic BK last (slowest, no optimizations)
+                benchmark_algorithm(graph, name, "BronKerbosch", timeout_seconds);
             } else {
                 std::cout << "  Skipping exact algorithms (graph too large)" << std::endl;
             }

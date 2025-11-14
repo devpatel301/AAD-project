@@ -19,6 +19,12 @@ void BronKerbosch::bron_kerbosch(std::unordered_set<int> R,
                                  std::unordered_set<int> P,
                                  std::unordered_set<int> X,
                                  const Graph& g) {
+    // OPTIMIZATION: Prune if current + remaining cannot beat best
+    // Upper bound: |R| + |P| (assuming all of P can be added)
+    if (R.size() + P.size() <= max_clique.size()) {
+        return;  // Cannot find a larger clique in this branch
+    }
+    
     // Base case: if P and X are both empty, R is a maximal clique
     if (P.empty() && X.empty()) {
         if (R.size() > max_clique.size()) {
@@ -32,6 +38,11 @@ void BronKerbosch::bron_kerbosch(std::unordered_set<int> R,
     
     // For each vertex in P
     for (int v : P_copy) {
+        // OPTIMIZATION: Check if this branch can improve best
+        if (R.size() + 1 + P.size() <= max_clique.size()) {
+            break;  // No point continuing, remaining vertices can't help
+        }
+        
         // Create new sets
         std::unordered_set<int> R_new = R;
         R_new.insert(v);
