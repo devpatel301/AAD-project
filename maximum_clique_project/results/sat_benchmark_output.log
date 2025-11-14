@@ -1,0 +1,61 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║     SAT-GENERATED GRAPH BENCHMARK - ALL ALGORITHMS FORCED         ║
+╚════════════════════════════════════════════════════════════════════╝
+
+Loading graph from: datasets/sat_generated/random_3sat_large.txt
+Loaded graph: 1200 vertices, 714583 edges
+
+======================================================================
+GRAPH PROPERTIES
+======================================================================
+Vertices: 1200
+Edges: 714583
+Density: 0.993304
+Degeneracy: 1185
+======================================================================
+
+Running ALL algorithms (no size restrictions)...
+This may take a VERY long time for large graphs!
+
+▶ Running Greedy...
+  Started at: 1763158445
+  ✓ Completed!
+======================================================================
+Algorithm: Greedy
+Status: SUCCESS
+Clique Size: 383
+Valid: YES
+Time (microseconds): 385 μs
+Time (milliseconds): 0.39 ms
+Time (seconds): 0.0004 s
+======================================================================
+
+▶ Running SimulatedAnnealing...
+  Started at: 1763158445
+  ✓ Completed!
+======================================================================
+Algorithm: SimulatedAnnealing
+Status: SUCCESS
+Clique Size: 393
+Valid: YES
+Time (microseconds): 21465351 μs
+Time (milliseconds): 21465.35 ms
+Time (seconds): 21.4654 s
+======================================================================
+
+▶ Running RandomizedHeuristic...
+  Started at: 1763158466
+  ✓ Completed!
+======================================================================
+Algorithm: RandomizedHeuristic
+Status: SUCCESS
+Clique Size: 383
+Valid: YES
+Time (microseconds): 5094 μs
+Time (milliseconds): 5.09 ms
+Time (seconds): 0.0051 s
+======================================================================
+
+▶ Running BronKerbosch...
+  Started at: 1763158466
