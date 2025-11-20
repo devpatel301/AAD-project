@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+C125.9.txt,125,6963,0.898452,119,111.41,102,Greedy,29,0.000010,0,true
+C125.9.txt,125,6963,0.898452,119,111.41,102,Randomized,29,0.000206,0,true
+C125.9.txt,125,6963,0.898452,119,111.41,102,Simulated Annealing,34,0.362695,0,true
+C125.9.txt,125,6963,0.898452,119,111.41,102,Bron-Kerbosch,N/A,N/A,N/A,false
+C125.9.txt,125,6963,0.898452,119,111.41,102,Tomita,34,66.245715,0,true
+C125.9.txt,125,6963,0.898452,119,111.41,102,Degeneracy BK,34,46.729706,0,true
+C125.9.txt,125,6963,0.898452,119,111.41,102,Ostergard,34,10.028437,0,true
+C125.9.txt,125,6963,0.898452,119,111.41,102,BBMC,34,1.883155,0,true
+C125.9.txt,125,6963,0.898452,119,111.41,102,CPU Optimized,N/A,N/A,N/A,false
+C125.9.txt,125,6963,0.898452,119,111.41,102,MaxCliqueDyn,34,2.585040,0,true

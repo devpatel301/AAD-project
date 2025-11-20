@@ -1,7 +1,0 @@
-# Example small graph for testing
-# This is a simple triangle graph (3 vertices, 3 edges)
-# Maximum clique size: 3 (all vertices)
-
-0 1
-1 2
-0 2
