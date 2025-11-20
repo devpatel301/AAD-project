@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,Greedy,7,0.000015,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,Randomized,7,0.000152,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,Simulated Annealing,8,0.164464,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,Bron-Kerbosch,8,0.123729,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,Tomita,8,0.345191,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,Degeneracy BK,8,0.218739,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,Ostergard,8,0.016039,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,BBMC,8,0.027963,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,CPU Optimized,8,0.081757,0,true
+p_hat300-1.txt,300,10933,0.243768,132,72.89,49,MaxCliqueDyn,8,0.149358,0,true

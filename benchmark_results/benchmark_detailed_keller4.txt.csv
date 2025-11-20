@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+keller4.txt,171,9435,0.649123,124,110.35,102,Greedy,8,0.000008,0,true
+keller4.txt,171,9435,0.649123,124,110.35,102,Randomized,10,0.000101,0,true
+keller4.txt,171,9435,0.649123,124,110.35,102,Simulated Annealing,11,0.157793,0,true
+keller4.txt,171,9435,0.649123,124,110.35,102,Bron-Kerbosch,N/A,N/A,N/A,false
+keller4.txt,171,9435,0.649123,124,110.35,102,Tomita,11,8.056488,0,true
+keller4.txt,171,9435,0.649123,124,110.35,102,Degeneracy BK,11,7.876010,0,true
+keller4.txt,171,9435,0.649123,124,110.35,102,Ostergard,11,0.658235,0,true
+keller4.txt,171,9435,0.649123,124,110.35,102,BBMC,11,0.259959,0,true
+keller4.txt,171,9435,0.649123,124,110.35,102,CPU Optimized,N/A,N/A,N/A,false
+keller4.txt,171,9435,0.649123,124,110.35,102,MaxCliqueDyn,11,0.960185,0,true

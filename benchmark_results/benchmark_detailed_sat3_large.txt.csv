@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+sat3_large.txt,300,438,0.009766,9,2.92,2,Greedy,2,0.000006,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,Randomized,3,0.000052,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,Simulated Annealing,3,0.080861,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,Bron-Kerbosch,3,0.000651,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,Tomita,3,0.010308,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,Degeneracy BK,3,0.000118,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,Ostergard,3,0.000245,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,BBMC,3,0.003354,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,CPU Optimized,3,0.000417,0,true
+sat3_large.txt,300,438,0.009766,9,2.92,2,MaxCliqueDyn,3,0.004815,0,true
