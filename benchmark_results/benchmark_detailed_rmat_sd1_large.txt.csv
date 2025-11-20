@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,Greedy,8,0.000016,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,Randomized,8,0.000131,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,Simulated Annealing,9,0.235428,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,Bron-Kerbosch,9,0.026831,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,Tomita,9,0.142578,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,Degeneracy BK,9,0.031701,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,Ostergard,9,0.003104,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,BBMC,9,0.008773,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,CPU Optimized,9,0.012570,0,true
+rmat_sd1_large.txt,500,10000,0.080160,137,40.00,25,MaxCliqueDyn,9,0.081984,0,true

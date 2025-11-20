@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+random_180v.txt,180,2420,0.150217,38,26.89,20,Greedy,4,0.000010,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,Randomized,4,0.000054,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,Simulated Annealing,5,0.068592,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,Bron-Kerbosch,5,0.003087,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,Tomita,5,0.016505,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,Degeneracy BK,5,0.004667,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,Ostergard,5,0.000577,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,BBMC,5,0.003069,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,CPU Optimized,5,0.002898,0,true
+random_180v.txt,180,2420,0.150217,38,26.89,20,MaxCliqueDyn,5,0.010526,0,true

@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,Greedy,7,0.000190,0,true
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,Randomized,25,0.000987,0,true
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,Simulated Annealing,12,1.213225,0,true
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,Bron-Kerbosch,N/A,N/A,N/A,false
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,Tomita,69,11.368273,0,true
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,Degeneracy BK,69,1.528674,0,true
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,Ostergard,69,0.834989,0,true
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,BBMC,69,0.104042,0,true
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,CPU Optimized,N/A,N/A,N/A,false
+facebook_combined.txt,4039,88234,0.010820,1045,43.69,115,MaxCliqueDyn,69,2.100446,0,true

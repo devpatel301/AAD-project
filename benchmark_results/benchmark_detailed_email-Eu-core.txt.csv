@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,Greedy,17,0.000040,0,true
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,Randomized,17,0.000208,0,true
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,Simulated Annealing,17,0.390126,0,true
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,Bron-Kerbosch,N/A,N/A,N/A,false
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,Tomita,18,0.507383,0,true
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,Degeneracy BK,18,0.056934,0,true
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,Ostergard,18,0.007666,0,true
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,BBMC,18,0.013969,0,true
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,CPU Optimized,N/A,N/A,N/A,false
+email-Eu-core.txt,1005,16064,0.031841,345,31.97,34,MaxCliqueDyn,18,0.169661,0,true

@@ -1,0 +1,11 @@
+Dataset,Vertices,Edges,Density,MaxDegree,AvgDegree,Degeneracy,Algorithm,CliqueSize,Time(s),Memory(KB),Success
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,Greedy,44,0.000208,0,true
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,Randomized,44,0.001143,0,true
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,Simulated Annealing,44,1.692729,0,true
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,Bron-Kerbosch,N/A,N/A,N/A,false
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,Tomita,44,1.800984,0,true
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,Degeneracy BK,44,0.057500,0,true
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,Ostergard,44,0.052948,0,true
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,BBMC,44,0.132545,0,true
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,CPU Optimized,N/A,N/A,N/A,false
+ca-GrQc.txt,5242,14484,0.001054,81,5.53,43,MaxCliqueDyn,44,1.810790,0,true
