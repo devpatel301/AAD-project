@@ -17,6 +17,9 @@
 #include <cmath>
 #include <sys/resource.h>
 
+// Timeout in seconds - used for display only
+const int ALGORITHM_TIMEOUT_SECONDS = 1800;
+
 // Memory measurement utilities
 size_t get_memory_usage_kb() {
     struct rusage usage;
@@ -286,52 +289,72 @@ int main(int argc, char* argv[]) {
         results.push_back({"Bron-Kerbosch", 0, 0.0, 0, false, "Skipped: " + reason});
     }
     
-    // 5. Tomita
-    std::cout << "[5/11] Tomita (BK with Pivoting)...           ";
-    std::cout.flush();
-    auto r5 = run_algorithm<TomitaAlgorithm>(g, "Tomita");
-    results.push_back(r5);
-    if (r5.success) {
-        std::cout << "✓ Size: " << std::setw(3) << r5.clique_size 
-                  << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r5.time_seconds << " s\n";
+    // 5. Tomita (skip on high density graphs)
+    if (stats.density <= 0.7) {
+        std::cout << "[5/11] Tomita (BK with Pivoting)...           ";
+        std::cout.flush();
+        auto r5 = run_algorithm<TomitaAlgorithm>(g, "Tomita");
+        results.push_back(r5);
+        if (r5.success) {
+            std::cout << "✓ Size: " << std::setw(3) << r5.clique_size 
+                      << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r5.time_seconds << " s\n";
+        } else {
+            std::cout << "✗ " << r5.error << "\n";
+        }
     } else {
-        std::cout << "✗ " << r5.error << "\n";
+        std::cout << "[5/11] Tomita (BK with Pivoting)...           ⊘ SKIPPED (density > 0.7)\n";
+        results.push_back({"Tomita", 0, 0.0, 0, false, "Skipped: density > 0.7"});
     }
     
-    // 6. Degeneracy BK
-    std::cout << "[6/11] Degeneracy Bron-Kerbosch...            ";
-    std::cout.flush();
-    auto r6 = run_algorithm<DegeneracyBK>(g, "Degeneracy BK");
-    results.push_back(r6);
-    if (r6.success) {
-        std::cout << "✓ Size: " << std::setw(3) << r6.clique_size 
-                  << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r6.time_seconds << " s\n";
+    // 6. Degeneracy BK (skip on high density graphs)
+    if (stats.density <= 0.7) {
+        std::cout << "[6/11] Degeneracy Bron-Kerbosch...            ";
+        std::cout.flush();
+        auto r6 = run_algorithm<DegeneracyBK>(g, "Degeneracy BK");
+        results.push_back(r6);
+        if (r6.success) {
+            std::cout << "✓ Size: " << std::setw(3) << r6.clique_size 
+                      << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r6.time_seconds << " s\n";
+        } else {
+            std::cout << "✗ " << r6.error << "\n";
+        }
     } else {
-        std::cout << "✗ " << r6.error << "\n";
+        std::cout << "[6/11] Degeneracy Bron-Kerbosch...            ⊘ SKIPPED (density > 0.7)\n";
+        results.push_back({"Degeneracy BK", 0, 0.0, 0, false, "Skipped: density > 0.7"});
     }
     
-    // 7. Östergård
-    std::cout << "[7/11] Östergård...                           ";
-    std::cout.flush();
-    auto r7 = run_algorithm<OstergardAlgorithm>(g, "Ostergard");
-    results.push_back(r7);
-    if (r7.success) {
-        std::cout << "✓ Size: " << std::setw(3) << r7.clique_size 
-                  << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r7.time_seconds << " s\n";
+    // 7. Östergård (skip on very high density graphs)
+    if (stats.density <= 0.8) {
+        std::cout << "[7/11] Östergård...                           ";
+        std::cout.flush();
+        auto r7 = run_algorithm<OstergardAlgorithm>(g, "Ostergard");
+        results.push_back(r7);
+        if (r7.success) {
+            std::cout << "✓ Size: " << std::setw(3) << r7.clique_size 
+                      << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r7.time_seconds << " s\n";
+        } else {
+            std::cout << "✗ " << r7.error << "\n";
+        }
     } else {
-        std::cout << "✗ " << r7.error << "\n";
+        std::cout << "[7/11] Östergård...                           ⊘ SKIPPED (density > 0.8)\n";
+        results.push_back({"Ostergard", 0, 0.0, 0, false, "Skipped: density > 0.8"});
     }
     
-    // 8. BBMC
-    std::cout << "[8/11] BBMC...                                ";
-    std::cout.flush();
-    auto r8 = run_bbmc(g);
-    results.push_back(r8);
-    if (r8.success) {
-        std::cout << "✓ Size: " << std::setw(3) << r8.clique_size 
-                  << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r8.time_seconds << " s\n";
+    // 8. BBMC (skip on very high density graphs)
+    if (stats.density <= 0.8) {
+        std::cout << "[8/11] BBMC...                                ";
+        std::cout.flush();
+        auto r8 = run_bbmc(g);
+        results.push_back(r8);
+        if (r8.success) {
+            std::cout << "✓ Size: " << std::setw(3) << r8.clique_size 
+                      << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r8.time_seconds << " s\n";
+        } else {
+            std::cout << "✗ " << r8.error << "\n";
+        }
     } else {
-        std::cout << "✗ " << r8.error << "\n";
+        std::cout << "[8/11] BBMC...                                ⊘ SKIPPED (density > 0.8)\n";
+        results.push_back({"BBMC", 0, 0.0, 0, false, "Skipped: density > 0.8"});
     }
     
     // 9. CPU Optimized (skip if >1000 vertices OR density >0.5 OR >8192 vertices)
@@ -354,16 +377,21 @@ int main(int argc, char* argv[]) {
         results.push_back({"CPU Optimized", 0, 0.0, 0, false, "Skipped: too large"});
     }
     
-    // 10. MaxCliqueDyn
-    std::cout << "[10/11] MaxCliqueDyn (Tomita + Coloring)...   ";
-    std::cout.flush();
-    auto r10 = run_algorithm<MaxCliqueDyn>(g, "MaxCliqueDyn");
-    results.push_back(r10);
-    if (r10.success) {
-        std::cout << "✓ Size: " << std::setw(3) << r10.clique_size 
-                  << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r10.time_seconds << " s\n";
+    // 10. MaxCliqueDyn (skip on very high density graphs, similar to Tomita)
+    if (stats.density <= 0.7) {
+        std::cout << "[10/11] MaxCliqueDyn (Tomita + Coloring)...   ";
+        std::cout.flush();
+        auto r10 = run_algorithm<MaxCliqueDyn>(g, "MaxCliqueDyn");
+        results.push_back(r10);
+        if (r10.success) {
+            std::cout << "✓ Size: " << std::setw(3) << r10.clique_size 
+                      << ", Time: " << std::setw(10) << std::fixed << std::setprecision(6) << r10.time_seconds << " s\n";
+        } else {
+            std::cout << "✗ " << r10.error << "\n";
+        }
     } else {
-        std::cout << "✗ " << r10.error << "\n";
+        std::cout << "[10/11] MaxCliqueDyn (Tomita + Coloring)...   ⊘ SKIPPED (density > 0.7)\n";
+        results.push_back({"MaxCliqueDyn", 0, 0.0, 0, false, "Skipped: density > 0.7"});
     }
     
     std::cout << "\n========================================================================================================\n";

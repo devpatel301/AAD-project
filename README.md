@@ -1,11 +1,5 @@
-# Maximum Clique Algorithm Benchmarking Suite
-
-![C++](https://img.shields.io/badge/Language-C++17-blue.svg)
-![Python](https://img.shields.io/badge/Python-3.8+-yellow.svg)
-![CMake](https://img.shields.io/badge/Build-CMake-green.svg)
-![License](https://img.shields.io/badge/License-MIT-orange.svg)
-
-A high-performance C++ framework implementing **11 different algorithms** for solving the Maximum Clique Problem, ranging from fast heuristics to exact branch-and-bound methods. This suite includes extensive benchmarking capabilities across **22 diverse graph datasets** in standardized DIMACS format.
+# Maximum Clique Algorithm Benchmarking
+A high-performance C++ framework implementing **11 different algorithms** for solving the Maximum Clique Problem, ranging from fast heuristics to exact branch-and-bound methods. This suite includes extensive benchmarking capabilities across **21 diverse graph datasets** in standardized DIMACS format.
 
 ---
 
@@ -50,12 +44,12 @@ This repository serves as both a learning tool and a performance benchmark suite
 | Algorithm | Complexity (Worst) | Key Optimizations & Modifications |
 |-----------|-------------------|-----------------------------------|
 | **Bron-Kerbosch** | $O(3^{n/3})$ | Basic recursive backtracking. **Modified with:** Pruning based on $\|R\| + \|P\| \le \text{best\_size}$. |
-| **Tomita** | $O(3^{n/3})$ | BK with pivoting. **Modified with:** Pivot selection maximizing $\|P \cap N(\text{pivot})\|$ to minimize recursive branches. |
+| **Tomita** | $O(3^{n/3})$ | BK with pivoting. **Modified with:** Pivot selection maximizing $|P \cap N(\text{pivot})|$ to minimize recursive branches. |
 | **Degeneracy BK** | $O(d \cdot 3^{d/3})$ | Uses degeneracy ordering. **Modified with:** Optimal for sparse graphs; finds each maximal clique exactly once. |
 | **Östergård** | $O(3^{n/3})$ | Branch-and-bound. **Modified with:** Degree-based vertex ordering and early termination when upper bound $\le$ current best. |
 | **BBMC** | $O(3^{n/3})$ | **State-of-the-art.** Bitset-based B&B. **Modified with:** $O(1)$ intersections, greedy coloring bounds, and min-width ordering. |
 | **CPU Optimized** | $O(3^{n/3})$ | Highly optimized Tomita variant using `std::bitset` and cache-friendly memory layout (Limited to 1024 vertices). |
-| **GPU Optimized** | $O(3^{n/3})$ | CUDA-accelerated parallel search using thread blocks and warp-level primitives (Placeholder/Experimental). |
+| **MaxCliqueDyn** | $O(3^{n/3})$ | Dynamic programming with memoization for optimal substructure exploitation. |
 
 ---
 
